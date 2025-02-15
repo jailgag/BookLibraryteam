@@ -30,7 +30,7 @@
 	</update>
 	
 	<delete id="deleteBook">
-		DELETE FROM BOOK WHERE BOOK_NO= # {bookNo}
+		DELETE FROM BOOK WHERE BOOK_NO=#{bookNo}
 	</delete>
 	
 </mapper>
