@@ -56,8 +56,9 @@ public class BookDetailServlet extends HttpServlet {
 		String bookWrite =request.getParameter("bookWrite");
 		int bookPrice = Integer.parseInt(request.getParameter("bookPrice"));
 		String publisher = request.getParameter("publisher");
+		String genre = request.getParameter("genre");
 		//생성자!!
-		Book book = new Book(bookNo,bookName, bookWrite, bookPrice, publisher, publisher);
+		Book book = new Book(bookNo, bookName, bookWrite, bookPrice, publisher, genre);
 		int result = new BookService().updateBook(book);
 		//System.out.println("테스트");
 		if(result > 0) {

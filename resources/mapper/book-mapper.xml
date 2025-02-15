@@ -26,7 +26,7 @@
 	
 	
 	<update id="updateBook">
-		UPDATE BOOK SET BOOK_NAME = #{bookName},BOOK_WRITER = #{bookWrite}, BOOK_PRICE = #{bookPrice}, PUBLISHER = #{publisher} WHERE BOOK_NO = #{bookNo}
+		UPDATE BOOK SET BOOK_NAME = #{bookName},BOOK_WRITER = #{bookWrite}, BOOK_PRICE = #{bookPrice}, PUBLISHER = #{publisher}, GENRE= #{genre} WHERE BOOK_NO = #{bookNo}
 	</update>
 	
 	<delete id="deleteBook">

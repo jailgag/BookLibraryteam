@@ -34,6 +34,10 @@
 				<label>출판사:</label>
 				<input type="text" name="publisher"value="${book.publisher }">
 			</div>
+			<div>
+				<label>장르:</label>
+				<input type="text" name="genre"value="${book.genre }">
+			</div>
 			<div class="">
 					<div class="">
 					<!-- <a href="/book/detail?bookNo=${book.bookNo }" class="">수정</a> -->

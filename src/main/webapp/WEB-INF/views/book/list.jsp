@@ -12,18 +12,15 @@
 		<link rel="stylesheet" href="../resources/css/list.css">
 	</head>
 <body>
-		<!-- <td class="no">${book.bookNo }</td> -->
-		<div id="container">
+	<div id="container">
 		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-	<main>
-		<section class="board-title">
-		<h1>책관리</h1>
-		<a href="/book/write">책등록</a>
-		<!-- <a href="/book/delete?bookNo=${book.bookNo }">책삭제</a> -->
-		
-		</section>
-		<div class="search-container">
-			<form class="search-form" action="" method="get">
+		<main>
+			<section class="board-title">
+				<h1>책관리</h1>
+			<a href="/book/write">책등록</a>
+			</section>
+			<div class="search-container">
+			<form class="search-form" action="book/search" method="get">
 				<select class="search-select" name="searchCondition">
 					<option value="bookNo">책번호</option>
 					<option value="bookName">제목</option>
@@ -33,7 +30,7 @@
 			</form>
 		</div>
 		<section class="board-content">
-		<table class="book-tatle">
+			<table class="book-table">
 			<thead>
 				<tr>
 					<th class="no">번호</th>
@@ -47,9 +44,6 @@
 			<tbody>
 				<c:forEach items="${bList }" var="book">
 					<tr>
-						<!-- <td><a href="/book/detail?bookNo=${book.bookNo }">${book.bookNo }</a></td> -->
-						
-						<!-- <td><a href="book/modify?booName=${book.bookName }">${book.bookName }</a></td> -->
 						<td class="no">${book.bookNo }</td>
 						<td><a href="/book/detail?bookNo=${book.bookNo }">${book.bookName }</a></td>
 						<td class="write">${book.bookWrite }</td>
@@ -69,9 +63,9 @@
 					<a href="#">5</a>
 					<a href="#" class="next">&gt;</a>
 				</div>
-		</section>	
-	</main>
+			</section>	
+		</main>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp" />
-</div>
-</body>
+	</div>
+	</body>
 </html>
