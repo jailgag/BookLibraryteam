@@ -35,7 +35,7 @@
 		DELETE FROM BOOK WHERE BOOK_NO=#{bookNo}
 	</delete>
 	
-	<select id="getTotalCount" resultType="-int">
+	<select id="getTotalCount" resultType="_int">
 		 SELECT COUNT(*) FROM BOOK
 	</select>
 	

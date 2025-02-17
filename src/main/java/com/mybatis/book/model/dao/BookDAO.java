@@ -52,7 +52,7 @@ public class BookDAO {
 	//리스트서블릿(페이징처리)
 	public int getTotalCount(SqlSession session) {
 		// TODO Auto-generated method stub
-		int totalCount = session.selectOne("BookMapper.getTotalCount",session);
+		int totalCount = session.selectOne("BookMapper.getTotalCount");
 		return totalCount;
 	}
 	
