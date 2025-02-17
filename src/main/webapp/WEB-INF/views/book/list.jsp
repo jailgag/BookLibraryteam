@@ -20,12 +20,12 @@
 			<a href="/book/write">책등록</a>
 			</section>
 			<div class="search-container">
-			<form class="search-form" action="book/search" method="get">
+			<form class="search-form" action="/*******book/search" method="get">
 				<select class="search-select" name="searchCondition">
 					<option value="bookNo">책번호</option>
 					<option value="bookName">제목</option>
 				</select>
-				<input type="text" class="search-input" name="searchkeyword">
+				<input type="text" class="search-input" name="searchKeyword" placeholder="책번호나제목을입력해주세요">
 				<button type="submit" class="search-button">검색</button> 
 			</form>
 		</div>
@@ -33,21 +33,21 @@
 			<table class="book-table">
 			<thead>
 				<tr>
-					<th class="no">번호</th>
-					<th class="name">제목</th>
-					<th class="write">글쓴이</th>
-					<th class="price">가격</th>
+					<th class="bookNo">번호</th>
+					<th class="bookName">제목</th>
+					<th class="bookWrite">글쓴이</th>
+					<th class="bookPrice">가격</th>
 					<th class="publisher">출판사</th>
 					<th class="genre">장르</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${bList }" var="book">
+				<c:forEach items="${bList }" var="book" varStatus="i">
 					<tr>
-						<td class="no">${book.bookNo }</td>
+						<td class="bookNo">${bList.size() -i.index }</td>
 						<td><a href="/book/detail?bookNo=${book.bookNo }">${book.bookName }</a></td>
-						<td class="write">${book.bookWrite }</td>
-						<td class="price">${book.bookPrice }</td>
+						<td class="bookWrite">${book.bookWrite }</td>
+						<td class="bookPrice">${book.bookPrice }</td>
 						<td class="publisher">${book.publisher }</td>
 						<td class="genre">${book.genre }</td>
 					</tr>
@@ -55,13 +55,15 @@
 			</tbody>
 			</table>
 				<div class="pagination">
-					<a href="#" class="prev">&lt;</a>
-					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#">5</a>
-					<a href="#" class="next">&gt;</a>
+				<c:if test="${startNavi ne 1}">
+					<a href="/book/list?currentPage=${startNavi -1 }" class="prev">&lt;</a>
+				</c:if>
+					<c:forEach begin="${startNavi }" end="${endNavi }" var="p">
+						<a href="/book/list?currentPage=${p }">${p }</a>
+					</c:forEach>
+					<c:if test="${endNavi ne 24}">
+						<a href="/book/list?currentPage=${endNavi +1 } "class="next">&gt;</a>
+					</c:if>
 				</div>
 			</section>	
 		</main>

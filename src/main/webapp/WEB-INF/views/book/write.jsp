@@ -15,7 +15,7 @@
 	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 	<main>
 		<form class="book-from"action="/book/write" method="post">
-			<h2>책 등록</h2>
+			<h2>책 등록222</h2>
 			<div class="form-group">
 				<label>제목 :</label>
 				<input type="text" name="bookName">

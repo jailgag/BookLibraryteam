@@ -3,6 +3,8 @@
 main {
 	width: 1000px;
 	margin:5px auto;
+	display: flex;
+	flex-wrap: wrap;
 	flex:1;
 }
 
@@ -22,8 +24,8 @@ main {
 .form-group {
 	margin-bottom: 20px;	
 }
-.form-group lable {
-	display:blok;
+.form-group label {
+	display:block;
 	font-size: 20px;
 	color: #666;
 	margin-bottom: 5px;

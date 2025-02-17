@@ -99,9 +99,9 @@ main {
 }
 
 .pagination .active {
-	background-color: #045;
+	background-color: #4CAF50;
 	color: #fff;
-	border-color: #045;
+	border-color: #4CAF50;
 }
 
 .pagination .prev, 

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.mybatis.book.model.dao.BookDAO;
 import com.mybatis.book.model.vo.Book;
+import com.mybatis.book.model.vo.SearchVo;
 import com.mybatis.common.SqlSessionTemplate;
 
 public class BookService {
@@ -19,9 +20,9 @@ public class BookService {
 		session = SqlSessionTemplate.getSqlSession();
 	}
 	//1.list서블릿에서 넘어옴!!(전체조회)
-	public List<Book> selectListAll() {
+	public List<Book> selectListAll(int currentPage) {
 		// TODO Auto-generated method stub
-		List<Book> bList = bDao.selectList(session);
+		List<Book> bList = bDao.selectList(session,currentPage);
 		return bList;
 	}
 	//2.write서블릿에서~!
@@ -46,6 +47,18 @@ public class BookService {
 		// TODO Auto-generated method stub
 		int result = bDao.deleteBook(session,bookNo);
 		return result;
+	}
+	//서치 서블릿에서!!
+	public List<Book> selectSearchList(SearchVo search) {
+		// TODO Auto-generated method stub
+		List<Book> searchList = bDao.selectSearchList(session, search);
+		return searchList;
+	}
+	//리스트서블릿(페이징처리)
+	public int getTotalCount() {
+		// TODO Auto-generated method stub
+		int totalCount = bDao.getTotalCount(session);
+		return totalCount;
 	}
 	
 }

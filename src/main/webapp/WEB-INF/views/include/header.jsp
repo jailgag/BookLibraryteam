@@ -15,7 +15,7 @@
 	</div>
 		<nav id="nav">
 		<ul class="topMenu">
-			<li><a href="/book/list">책관리</a></li>
+			<li><a href="/book/list?currentPage=1">책관리</a></li>
 			<li><a href="/library/list">대여관리</a></li>
 			<li><a href="/customer/list">회원관리</a></li>
 		</ul>

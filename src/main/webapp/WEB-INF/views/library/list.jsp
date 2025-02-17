@@ -9,21 +9,25 @@
 	<link rel="stylesheet" href="../resources/css/reset.css">
 	<link rel="stylesheet" href="../resources/css/header.css">
 	<link rel="stylesheet" href="../resources/css/footer.css">
+	<link rel="stylesheet" href="../resources/css/librarylist.css">
+	
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+	<div>
+	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
 	${lList }
 	<h1>대여관리</h1>
 	<a href="/library/write">대여 등록</a>
 	<a href="/library/delete">대여 삭제</a>
-	<table>
+	<section class="board-content">
+	<table class="library-table">
 		<thead>
 			<tr>
-				<th>대여번호</th>
-				<th>책제목</th>
-				<th>고객ID</th>
-				<th>대여일</th>
-				<th>반납일</th>
+				<th class="lNum">대여번호</th>
+				<th class="lNum">책제목</th>
+				<th class="">고객ID</th>
+				<th class="">대여일</th>
+				<th class="">반납일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,7 +35,7 @@
 			<tr>
 				<td class="lNum">${library.leaseNo }</td>
 				<!--<td class="bNum">${library.bookNo }</td> -->
-				<td class="bName">${library.bookName }</td>
+				<td class="lNum">${library.bookName }</td>
 				<td class="userId">${library.userId }</td>
 				<td class="lDate">${library.leaseDate }</td>
 				<td class="eDate">${library.returnDate }</td>
@@ -39,6 +43,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
-	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+	</section>
+	<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
+	</div>
 </body>
 </html>

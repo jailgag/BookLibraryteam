@@ -23,7 +23,9 @@
 		INSERT INTO BOOK VALUES(SEQ_BOOK_NO.NEXTVAL,#{bookName},#{bookWrite},#{bookPrice},#{publisher},#{genre})
 	</insert>
 	
-	
+	<select id="selectSearchList" resultMap="BookResultMap">
+		SELECT * FROM BOOK WHERE BOOK_NO =#{searchKeyword}
+	</select>	
 	
 	<update id="updateBook">
 		UPDATE BOOK SET BOOK_NAME = #{bookName},BOOK_WRITER = #{bookWrite}, BOOK_PRICE = #{bookPrice}, PUBLISHER = #{publisher}, GENRE= #{genre} WHERE BOOK_NO = #{bookNo}
@@ -32,5 +34,9 @@
 	<delete id="deleteBook">
 		DELETE FROM BOOK WHERE BOOK_NO=#{bookNo}
 	</delete>
+	
+	<select id="getTotalCount" resultType="-int">
+		 SELECT COUNT(*) FROM BOOK
+	</select>
 	
 </mapper>
