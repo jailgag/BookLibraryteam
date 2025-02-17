@@ -20,12 +20,12 @@
 			<a href="/book/write">책등록</a>
 			</section>
 			<div class="search-container">
-			<form class="search-form" action="/*******book/search" method="get">
+			<form class="search-form" action="/book/search" method="get">
 				<select class="search-select" name="searchCondition">
 					<option value="bookNo">책번호</option>
 					<option value="bookName">제목</option>
 				</select>
-				<input type="text" class="search-input" name="searchKeyword" placeholder="책번호나제목을입력해주세요">
+				<input type="text" class="search-input" name="searchKeyword" placeholder="검색어나숫자입력">
 				<button type="submit" class="search-button">검색</button> 
 			</form>
 		</div>

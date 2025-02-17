@@ -24,8 +24,18 @@
 	</insert>
 	
 	<select id="selectSearchList" resultMap="BookResultMap">
-		SELECT * FROM BOOK WHERE BOOK_NO =#{searchKeyword}
+		SELECT * FROM BOOK 
+		<where>
+			 <if test="searchCondition == 'bookNo'">
+			 	BOOK_NO LIKE '%'||#{searchKeyword}||'%'
+			  </if>
+			 <if test="searchCondition == 'bookName'">
+			 	BOOK_NAME LIKE '%'||#{searchKeyword}||'%'
+			  </if>
+		</where> 
+		ORDER BY BOOK_NO DESC
 	</select>	
+		
 	
 	<update id="updateBook">
 		UPDATE BOOK SET BOOK_NAME = #{bookName},BOOK_WRITER = #{bookWrite}, BOOK_PRICE = #{bookPrice}, PUBLISHER = #{publisher}, GENRE= #{genre} WHERE BOOK_NO = #{bookNo}
